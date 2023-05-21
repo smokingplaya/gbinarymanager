@@ -23,7 +23,7 @@ end
 local db_remove_by_id = "DELETE FROM gbm WHERE name = %s"
 function gbinarymanager.db.RemoveByName(name)
 	local b = sql.Query(db_remove_by_id:format(db_str(name)))
-	gbinarymanager.log("Database", b and name .. " was removed from database." or "Couldn't remove " .. name .. " from database.")
+	gbinarymanager.log("Database", b == nil and name .. " was removed from database." or "Couldn't remove " .. name .. " from database.")
 end
 
 do
